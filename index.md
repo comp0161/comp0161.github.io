@@ -28,4 +28,4 @@ the notebook click the corresponding "Open in Colab" link.
     * In this final session we tweak the instrument sound and apply
       a variety of audio effects to the music generated in Lab 2.
     * [dev notebook](https://colab.research.google.com/drive/1x23bALrzIQeRxzAyyfcz44b3vdyLlK9b) (temporary)
-    * (colab link coming soon)
+    * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab3.ipynb)
