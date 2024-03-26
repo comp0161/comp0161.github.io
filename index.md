@@ -36,3 +36,23 @@ that.
       a variety of audio effects to the music generated in Lab 2.
 <!--    * [dev notebook](https://colab.research.google.com/drive/1x23bALrzIQeRxzAyyfcz44b3vdyLlK9b) (temporary) -->
     * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab3.ipynb)
+
+
+## Links & Resources
+
+* [Auditory Modeling Toolbox](https://amtoolbox.org)
+* [Al Bregman's Auditory Scene Analysis](https://webpages.mcgill.ca/staff/Group2/abregm1/web/)
+* [Dannenberg Introduction to Music Concepts](https://www.cs.cmu.edu/~music/cmsip/readings/music-theory.htm)
+* [The Hearing Garden](https://www.hz-ol.de/en/listening-garden.html)
+* [Pure Data (Pd)](https://puredata.info/)
+    * [Tutorial: Programming Electronic Music in Pd](http://pd-tutorial.com/english/index.html)
+    * [Purr Data](https://www.purrdata.net)
+* [SuperCollider](https://supercollider.github.io)
+* [Csound](https://csound.com)
+* [Cmajor](https://cmajor.dev)
+* [MuseScore](https://musescore.org)
+* [LilyPond](https://lilypond.org)
+* [FluidSynth](https://www.fluidsynth.org)
+* [VCV Rack](https://vcvrack.com/Rack)
+* [Music21](https://web.mit.edu/music21/)
+* [Pedalboard](https://github.com/spotify/pedalboard)
