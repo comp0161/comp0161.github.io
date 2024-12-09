@@ -4,8 +4,9 @@ layout: default
 Course materials for the
 [Auditory Computing](https://www.ucl.ac.uk/module-catalogue/modules/auditory-computing-COMP0161)
 module at [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), for delivery in
-Term 2 (January-March 2024).
+Term 2 (January-March 2025).
 
+<!--
 ## Tutorial Lab Sessions: Generating Music with Deep Learning
 
 Please bring your laptop and suitable headphones/earphones.
@@ -24,18 +25,16 @@ that.
 
 * **Lab 1: Data** (1 Feb 2024)
     * In this lab we build a text-encoded dataset of classical piano music.
-<!--    * [dev notebook](https://colab.research.google.com/drive/1vkN__9VWqz4SaEgQDDvWEWqKANHk9wnl) (temporary) -->
     * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab1.ipynb)
 * **Lab 2: Learning** (22 Feb 2024)
     * In this lab we use the compiled dataset from Lab 1 to train a small GPT-style model
       to generate music in a similar style.
-<!--    * [dev notebook](https://colab.research.google.com/drive/1tfWhkgOYNF-KGZZu4Fc-nrBs1NEgC1m7) (temporary) -->
     * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab2.ipynb)
 * **Lab 3: Synthesis & Effects** (29 Feb 2024)
     * In this final session we tweak the instrument sound and apply
       a variety of audio effects to the music generated in Lab 2.
-<!--    * [dev notebook](https://colab.research.google.com/drive/1x23bALrzIQeRxzAyyfcz44b3vdyLlK9b) (temporary) -->
     * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab3.ipynb)
+-->
 
 
 ## Links & Resources
@@ -48,6 +47,7 @@ that.
     * [Tutorial: Programming Electronic Music in Pd](http://pd-tutorial.com/english/index.html)
     * [Purr Data](https://www.purrdata.net)
 * [SuperCollider](https://supercollider.github.io)
+    * [TidalCycles](https://tidalcycles.org)
 * [Csound](https://csound.com)
 * [Cmajor](https://cmajor.dev)
 * [MuseScore](https://musescore.org)
@@ -56,3 +56,5 @@ that.
 * [VCV Rack](https://vcvrack.com/Rack)
 * [Music21](https://web.mit.edu/music21/)
 * [Pedalboard](https://github.com/spotify/pedalboard)
+* [Strudel](https://strudel.cc)
+* [Estuary](https://estuary.mcmaster.ca)
