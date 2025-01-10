@@ -6,11 +6,26 @@ Course materials for the
 module at [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), for delivery in
 Term 2 (January-March 2025).
 
+## Tutorial Lab Sessions
+
+**Please bring your laptop and suitable headphones/earphones!**
+
+A provisional schedule is shown below — note that
+the topics are only indicative and will almost certainly change
+as we go along. Links to any associated content or requirements
+for each week will be added as necessary. 
+
+* Lab 1: **Basic Acoustics & Auditory Perception** (16 Jan 2025)
+* Lab 2: **Signal Detection & Psychophysics** (23 Jan 2025)
+* Lab 3: **Digital Signal Processing** (30 Jan 2025)
+* Lab 4: **Auditory Scene Analysis** (6 Feb 2025)
+* Lab 5: **Speech Recognition** (13 Feb 2025)
+* Lab 6: **Space & Localisation** (27 Feb 2025)
+* Lab 7: **Pitch & Texture** (6 Mar 2025)
+* Lab 8: **Sonification** (13 Mar 2025)
+* Lab 9: **Generating Music with Deep Learning** (20 Mar 2025)
+
 <!--
-## Tutorial Lab Sessions: Generating Music with Deep Learning
-
-Please bring your laptop and suitable headphones/earphones.
-
 The practical exercises are run from within a web browser using
 [Google Colab](https://colab.research.google.com/). You will need
 a (free) Google account to use this service.
@@ -38,6 +53,10 @@ that.
 
 
 ## Links & Resources
+
+Some of these may be discussed or used in lectures or practicals, others
+are purely for interest. At some point they might get organised along
+such lines, but in the meantime feel free to browse around.
 
 * [Auditory Modeling Toolbox](https://amtoolbox.org)
 * [Al Bregman's Auditory Scene Analysis](https://webpages.mcgill.ca/staff/Group2/abregm1/web/)
