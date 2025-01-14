@@ -13,9 +13,22 @@ Term 2 (January-March 2025).
 A provisional schedule is shown below — note that
 the topics are only indicative and will almost certainly change
 as we go along. Links to any associated content or requirements
-for each week will be added as necessary. 
+for each week will be added as necessary.
+Tutorial code will generally be found in the
+[tutorials repo](https://github.com/comp0161/tutorials).
 
 * Lab 1: **Basic Acoustics & Auditory Perception** (16 Jan 2025)
+    * [`lab01.py`](https://github.com/comp0161/tutorials/blob/main/lab01.py)
+      is a script for some basic sound generation and playback using
+      the [simpleaudio](https://simpleaudio.readthedocs.io/en/latest/)
+      python package. Provided in case anyone is interested,
+      but note that **you do not need to run this yourself**.
+    * The tutorial makes use of some free audio metering plug-ins. Again, **you
+      do not need these** for anything on the module, but they can be useful for
+      visualising audio data. Links included for completeness, feel free to ignore.
+        * [Wave Observer](https://pressplay-music.com/wave-observer/) (oscilloscope)
+        * [Voxengo SPAN](https://www.voxengo.com/product/span/) (spectrum analyser)
+        * [TB Spectrogram](https://www.toneboosters.com/tb_spectrogram_v1.html) (spectrogram & spectrum analyser)
 * Lab 2: **Signal Detection & Psychophysics** (23 Jan 2025)
 * Lab 3: **Digital Signal Processing** (30 Jan 2025)
 * Lab 4: **Auditory Scene Analysis** (6 Feb 2025)
