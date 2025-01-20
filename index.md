@@ -73,7 +73,7 @@ such lines, but in the meantime feel free to browse around.
 
 * [Auditory Modeling Toolbox](https://amtoolbox.org)
 * [Al Bregman's Auditory Scene Analysis](https://webpages.mcgill.ca/staff/Group2/abregm1/web/)
-* [Dannenberg Introduction to Music Concepts](https://www.cs.cmu.edu/~music/cmsip/readings/music-theory.htm)
+* [Dannenberg Introduction to Music Concepts](https://www.cs.cmu.edu/~music/cmp/archives/cmsip/readings/music-theory.htm)
 * [The Hearing Garden](https://www.hz-ol.de/en/listening-garden.html)
 * [Pure Data (Pd)](https://puredata.info/)
     * [Tutorial: Programming Electronic Music in Pd](http://pd-tutorial.com/english/index.html)
@@ -86,7 +86,7 @@ such lines, but in the meantime feel free to browse around.
 * [LilyPond](https://lilypond.org)
 * [FluidSynth](https://www.fluidsynth.org)
 * [VCV Rack](https://vcvrack.com/Rack)
-* [Music21](https://web.mit.edu/music21/)
+* [Music21](https://www.music21.org/music21docs/)
 * [Pedalboard](https://github.com/spotify/pedalboard)
 * [Strudel](https://strudel.cc)
 * [Estuary](https://estuary.mcmaster.ca)
