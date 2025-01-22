@@ -30,6 +30,11 @@ Tutorial code will generally be found in the
         * [Voxengo SPAN](https://www.voxengo.com/product/span/) (spectrum analyser)
         * [TB Spectrogram](https://www.toneboosters.com/tb_spectrogram_v1.html) (spectrogram & spectrum analyser)
 * Lab 2: **Signal Detection & Psychophysics** (23 Jan 2025)
+    * During the lab you will act as experimental subjects in some basic psychophysics
+      experiments that run in your browser. (You will definitely need headphones for these.)
+        * [Calibration](experiments/calibration/?home=/index.html)
+        * [Pitch sensitivity](experiments/pitch/?home=/index.html)
+        * [Detection](experiments/freqlevel/?home=/index.html)
 * Lab 3: **Digital Signal Processing** (30 Jan 2025)
 * Lab 4: **Auditory Scene Analysis** (6 Feb 2025)
 * Lab 5: **Speech Recognition** (13 Feb 2025)
