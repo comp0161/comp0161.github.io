@@ -36,6 +36,7 @@ Tutorial code will generally be found in the
         * [Pitch sensitivity](experiments/pitch/?home=/index.html)
         * [Detection](experiments/freqlevel/?home=/index.html)
 * Lab 3: **Digital Signal Processing** (30 Jan 2025)
+    * [DSP tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab03.ipynb) (opens in Google Colab)
 * Lab 4: **Auditory Scene Analysis** (6 Feb 2025)
 * Lab 5: **Speech Recognition** (13 Feb 2025)
 * Lab 6: **Space & Localisation** (27 Feb 2025)
