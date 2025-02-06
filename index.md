@@ -38,6 +38,9 @@ Tutorial code will generally be found in the
 * Lab 3: **Digital Signal Processing** (30 Jan 2025)
     * [DSP tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab03.ipynb) (opens in Google Colab)
 * Lab 4: **Auditory Scene Analysis** (6 Feb 2025)
+    * [`lab04.tidal`](https://github.com/comp0161/tutorials/blob/main/lab04.tidal)
+      is a [Tidal Cycles](https://tidalcycles.org) script used to produce some sound examples in the tutorial
+    * [CASA tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab04.ipynb) (opens in Google Colab)
 * Lab 5: **Speech Recognition** (13 Feb 2025)
 * Lab 6: **Space & Localisation** (27 Feb 2025)
 * Lab 7: **Pitch & Texture** (6 Mar 2025)
