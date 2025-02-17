@@ -41,7 +41,15 @@ Tutorial code will generally be found in the
     * [`lab04.tidal`](https://github.com/comp0161/tutorials/blob/main/lab04.tidal)
       is a [Tidal Cycles](https://tidalcycles.org) script used to produce some sound examples in the tutorial
     * [CASA tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab04.ipynb) (opens in Google Colab)
-* Lab 5: **Speech Recognition** (13 Feb 2025)
+* Lab 5: **Speech** (13 Feb 2025)
+    * If you would like to try viewing your formants and segmenting a speech spectrogram, your best bet is
+      probably [Audacity](https://www.audacityteam.org) a free, cross-platform and full-featured audio
+      recording and editing application with built-in spectrogram capabilities.
+    * You could also use a plug-in such as [TB Spectrogram](https://www.toneboosters.com/tb_spectrogram_v1.html)
+      with your preferred audio app.
+    * Or do it in code with an audio library such as [librosa](https://librosa.org) or [pyfar](https://pyfar-gallery.readthedocs.io/en/latest/).
+    * [Blind Source Separation example](https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html) from
+      [scikit-learn](https://scikit-learn.org) using [Independent Component Analysis](https://scikit-learn.org/stable/modules/decomposition.html#ica)
 * Lab 6: **Space & Localisation** (27 Feb 2025)
 * Lab 7: **Pitch & Texture** (6 Mar 2025)
 * Lab 8: **Sonification** (13 Mar 2025)
@@ -83,6 +91,7 @@ such lines, but in the meantime feel free to browse around.
 * [Auditory Modeling Toolbox](https://amtoolbox.org)
 * [Al Bregman's Auditory Scene Analysis](https://webpages.mcgill.ca/staff/Group2/abregm1/web/)
 * [Dannenberg Introduction to Music Concepts](https://www.cs.cmu.edu/~music/cmp/archives/cmsip/readings/music-theory.htm)
+* [CMU Computer Music Project](https://www.cs.cmu.edu/~music/cmp/index.html)
 * [The Hearing Garden](https://www.hz-ol.de/en/listening-garden.html)
 * [Pure Data (Pd)](https://puredata.info/)
     * [Tutorial: Programming Electronic Music in Pd](http://pd-tutorial.com/english/index.html)
@@ -99,3 +108,5 @@ such lines, but in the meantime feel free to browse around.
 * [Pedalboard](https://github.com/spotify/pedalboard)
 * [Strudel](https://strudel.cc)
 * [Estuary](https://estuary.mcmaster.ca)
+* [Nyquist](https://www.cs.cmu.edu/~rbd/doc/nyquist/)
+* [Audacity](https://www.audacityteam.org)
