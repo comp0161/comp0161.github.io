@@ -52,7 +52,8 @@ Tutorial code will generally be found in the
       [scikit-learn](https://scikit-learn.org) using [Independent Component Analysis](https://scikit-learn.org/stable/modules/decomposition.html#ica)
 * Lab 6: **Space & Localisation** (27 Feb 2025)
     * [Auditory Localisation tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab06.ipynb) (opens in Google Colab)
-* Lab 7: <s>Pitch & Texture (6 Mar 2025)</s> **cancelled due to illness**
+* Lab 7: <s>Pitch & Texture (6 Mar 2025)</s>
+    * **cancelled due to illness**
 * Lab 8: **Sonification** (13 Mar 2025)
     * [`lab07.sc`](https://github.com/comp0161/tutorials/blob/main/lab07.sc) (SuperCollider script for pitch & tuning examples deferred from last week)
     * [Sonification tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab08.ipynb) (opens in Google Colab)
