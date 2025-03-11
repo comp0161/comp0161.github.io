@@ -54,6 +54,8 @@ Tutorial code will generally be found in the
     * [Auditory Localisation tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab06.ipynb) (opens in Google Colab)
 * Lab 7: <s>Pitch & Texture (6 Mar 2025)</s> **cancelled due to illness**
 * Lab 8: **Sonification** (13 Mar 2025)
+    * [`lab07.sc`](https://github.com/comp0161/tutorials/blob/main/lab07.sc) (SuperCollider script for pitch & tuning examples deferred from last week)
+    * [Sonification tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab08.ipynb) (opens in Google Colab)
 * Lab 9: **Generating Music with Deep Learning** (20 Mar 2025)
 
 <!--
