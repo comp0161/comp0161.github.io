@@ -58,32 +58,9 @@ Tutorial code will generally be found in the
     * [`lab07.sc`](https://github.com/comp0161/tutorials/blob/main/lab07.sc) is a [SuperCollider](https://supercollider.github.io) script for pitch & tuning examples deferred from last week
     * [Sonification tutorial notebook](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab08.ipynb) (opens in Google Colab)
 * Lab 9: **Generating Music with Deep Learning** (20 Mar 2025)
-
-<!--
-The practical exercises are run from within a web browser using
-[Google Colab](https://colab.research.google.com/). You will need
-a (free) Google account to use this service.
-
-To launch each notebook, click the corresponding "Open in Colab" badge.
-You might receive a warning that the notebook was not provided by
-Google — which is of course true, these notebooks were written by
-Matthew Caldwell for COMP0161. They will not, in fact, attempt to do
-anything untoward with your data, but you will have to take my word for
-that.
-
-
-* **Lab 1: Data** (1 Feb 2024)
-    * In this lab we build a text-encoded dataset of classical piano music.
-    * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab1.ipynb)
-* **Lab 2: Learning** (22 Feb 2024)
-    * In this lab we use the compiled dataset from Lab 1 to train a small GPT-style model
-      to generate music in a similar style.
-    * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab2.ipynb)
-* **Lab 3: Synthesis & Effects** (29 Feb 2024)
-    * In this final session we tweak the instrument sound and apply
-      a variety of audio effects to the music generated in Lab 2.
-    * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/comp0161/colab/blob/main/COMP0161_lab3.ipynb)
--->
+    * [Part 1 — Data](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part1_data.ipynb) (opens in Google Colab)
+    * [Part 2 — Learning](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part2_learning.ipynb) (opens in Google Colab)
+    * [Part 3 — Synthesis & Effects](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part3_synth_fx.ipynb) (opens in Google Colab)
 
 
 ## Links & Resources
