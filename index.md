@@ -81,6 +81,7 @@ such lines, but in the meantime feel free to browse around.
     * [TidalCycles](https://tidalcycles.org)
 * [Csound](https://csound.com)
 * [Cmajor](https://cmajor.dev)
+* [Sound As Pure Form](https://github.com/lfnoise/sapf)
 * [MuseScore](https://musescore.org)
 * [LilyPond](https://lilypond.org)
 * [FluidSynth](https://www.fluidsynth.org)
