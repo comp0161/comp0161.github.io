@@ -92,3 +92,9 @@ such lines, but in the meantime feel free to browse around.
 * [Estuary](https://estuary.mcmaster.ca)
 * [Nyquist](https://www.cs.cmu.edu/~rbd/doc/nyquist/)
 * [Audacity](https://www.audacityteam.org)
+* [NotaGen](https://github.com/ElectricAlexis/NotaGen)
+* [Modest](https://github.com/esbudylin/modest)
+* [SoundThread](https://github.com/j-p-higgins/SoundThread)
+* [Composers Desktop Project](https://www.composersdesktop.com)
+    * [Download](https://www.unstablesound.net/cdp.html)
+
