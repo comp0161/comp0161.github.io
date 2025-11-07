@@ -4,7 +4,7 @@ layout: default
 Course materials for the
 [Auditory Computing](https://www.ucl.ac.uk/module-catalogue/modules/auditory-computing-COMP0161)
 module at [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), for delivery in
-Term 2 (January-March 2025).
+Term 2 (January-March 2026).
 
 ## Tutorial Lab Sessions
 
@@ -17,7 +17,18 @@ for each week will be added as necessary.
 Tutorial code will generally be found in the
 [tutorials repo](https://github.com/comp0161/tutorials).
 
-* Lab 1: **Basic Acoustics & Auditory Perception** (16 Jan 2025)
+* Lab 1: **Basic Acoustics & Auditory Perception** (15 Jan 2026)
+* Lab 2: **Digital Audio Processing & Synthesis** (22 Jan 2026)
+* Lab 3: **Sonification** (29 Jan 2026)
+* Lab 4: **Signal Detection & Psychophysics** (5 Feb 2026)
+* Lab 5: **Auditory Scene Analysis** (12 Feb 2026)
+* Lab 6: **Speech** (26 Feb 2026)
+* Lab 7: **Space & Localisation** (5 Mar 2026)
+* Lab 8: **Pitch & Texture** (12 Mar 2026)
+* Lab 9: **Generating Music with Deep Learning** (19 Mar 2026)
+
+<!--
+* Lab 1: **Basic Acoustics & Auditory Perception** (15 Jan 2026)
     * [`lab01.py`](https://github.com/comp0161/tutorials/blob/main/lab01.py)
       is a script for some basic sound generation and playback using
       the [simpleaudio](https://simpleaudio.readthedocs.io/en/latest/)
@@ -61,7 +72,7 @@ Tutorial code will generally be found in the
     * [Part 1 — Data](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part1_data.ipynb) (opens in Google Colab)
     * [Part 2 — Learning](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part2_learning.ipynb) (opens in Google Colab)
     * [Part 3 — Synthesis & Effects](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part3_synth_fx.ipynb) (opens in Google Colab)
-
+-->
 
 ## Links & Resources
 
@@ -97,4 +108,5 @@ such lines, but in the meantime feel free to browse around.
 * [SoundThread](https://github.com/j-p-higgins/SoundThread)
 * [Composers Desktop Project](https://www.composersdesktop.com)
     * [Download](https://www.unstablesound.net/cdp.html)
-
+* [FluCoMa](https://www.flucoma.org)
+    * [DataKnot](https://rodrigoconstanzo.com/data-knot/)
