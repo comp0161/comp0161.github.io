@@ -1,12 +1,12 @@
 ---
 layout: default
 ---
-Course materials for the
+This page hosts some additional course materials for the
 [Auditory Computing](https://www.ucl.ac.uk/module-catalogue/modules/auditory-computing-COMP0161)
 module at [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), for delivery in
-Term 2 (January-March 2026).
+Term 2 (January-March 2026). For the main body of course materials, please see the [Moodle page](https://moodle.ucl.ac.uk/course/view.php?id=48900). 
 
-## Tutorial Lab Sessions
+## Tutorial Sessions
 
 **Please bring your laptop and suitable headphones/earphones!**
 
@@ -103,6 +103,7 @@ such lines, but in the meantime feel free to browse around.
 * [Estuary](https://estuary.mcmaster.ca)
 * [Nyquist](https://www.cs.cmu.edu/~rbd/doc/nyquist/)
 * [Audacity](https://www.audacityteam.org)
+* [ocenaudio](https://www.ocenaudio.com)
 * [NotaGen](https://github.com/ElectricAlexis/NotaGen)
 * [Modest](https://github.com/esbudylin/modest)
 * [SoundThread](https://github.com/j-p-higgins/SoundThread)
@@ -110,3 +111,13 @@ such lines, but in the meantime feel free to browse around.
     * [Download](https://www.unstablesound.net/cdp.html)
 * [FluCoMa](https://www.flucoma.org)
     * [DataKnot](https://rodrigoconstanzo.com/data-knot/)
+* [AthenaCL](https://github.com/ales-tsurko/athenaCL) (modern fork by Ales Tsurko)
+    * [moribund original by Christopher Ariza](https://code.google.com/archive/p/athenacl/) (Ariza was one of the lead developers on music21, but seems to have moved away from music. His [home site](https://www.flexatone.net) makes no mention of AthenaCL.
+* [Sonification Archive](https://sonification.design)
+    * [Data Sonification Canvas](https://sonification.design/assets/resource/Data_sonification_canvas.pdf)
+    * [Paper](https://dl.designresearchsociety.org/drs-conference-papers/drs2024/researchpapers/201/)
+* [Data Sonification Toolkit](https://www.sonificationkit.com)
+* [STRAUSS](https://github.com/james-trayford/strauss)
+    * [docs](https://strauss.readthedocs.io/en/latest/)
+    * [paper](https://joss.theoj.org/papers/10.21105/joss.07875)
+
