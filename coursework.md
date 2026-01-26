@@ -70,7 +70,7 @@ There are also plenty of dedicated audio & music coding environments, including:
 
 ## <a name="genai"></a>Use of Generative AI
 
-This coursework falls broadly into UCL Category 2 with respect to use of GenAI: GenAI tools can be used in an *assistive* role. However, due to the nature of the coursework, we take an extremely narrow view of what constitutes legitimate assistance. Please carefully read the notes below, and if you are even slightly uncertain about the acceptability of any intended use of GenAI in your work, [**ask for clarification**](mailto:m.caldwell@ucl.ac.uk?subject=COMP0161%20Coursework).
+This coursework falls broadly into UCL Category 2 with respect to use of GenAI: GenAI tools can be used in an *assistive* role. However, due to the nature of the coursework, we take an extremely narrow view of what constitutes legitimate assistance. Please carefully read the notes below, and if you are even slightly uncertain about the acceptability of any intended use of GenAI in your work, [ask for clarification](mailto:m.caldwell@ucl.ac.uk?subject=COMP0161%20Coursework).
 
 **Guiding principle: both the sonification and your report explaining it must be strictly your own work.**
 
@@ -98,7 +98,7 @@ Your submission must consist of **exactly 2 files**:
     * This can be a representative clip or excerpt from a larger output, but if so the excerpt should be self-contained. For the purposes of this coursework it will be judged in isolation.
     * The audio must be submitted in a standard pulse code modulation file format, such as WAV, M4A/AAC, MP3, FLAC, AIFF. Do not use anything obscure -- it is your responsibility to ensure that this will be playable by the people marking your work.
     * If your sonification process generates its output in some other format, such as MIDI, you must render it to audio before submitting.
-* A **short report** in PDF format documenting your sonification. This should be no more than 600 words *and* no more 2 sides of A4.
+* A **short report** in PDF format documenting your sonification. This should be no more than 600 words *and* no more than 2 sides of A4.
 
 Length limits will be strictly enforced. Audio files and/or reports that exceed the stipulated length will be cut off at the limit and marked as if the remaining material had not been submitted. There is no penalty attached to the overrun itself, but your truncated coursework will likely be incomplete and lose marks as a result.
 
