@@ -21,6 +21,7 @@ Tutorial code will generally be found in the
 * Lab 2: **Digital Audio Processing & Synthesis** (22 Jan 2026)
     * [Colab Notebook: Digital Audio Synthesis](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_lab2_synthesis.ipynb)
 * Lab 3: **Sonification** (29 Jan 2026)
+    * [Colab Notebook: Sonification](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_lab3_sonification.ipynb)
 * Lab 4: **Signal Detection & Psychophysics** (5 Feb 2026)
 * Lab 5: **Auditory Scene Analysis** (12 Feb 2026)
 * Lab 6: **Speech** (26 Feb 2026)
