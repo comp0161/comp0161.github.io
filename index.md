@@ -82,26 +82,10 @@ Some of these may be discussed or used in lectures or practicals, others
 are purely for interest. At some point they might get organised along
 such lines, but in the meantime feel free to browse around.
 
-### Auditory Modeling
+### Audio Analysis & Editing
 
-* [Auditory Modeling Toolbox](https://amtoolbox.org)
-* [Al Bregman's Auditory Scene Analysis](https://webpages.mcgill.ca/staff/Group2/abregm1/web/)
-
-### Music Analysis
-
-* [Dannenberg Introduction to Music Concepts](https://www.cs.cmu.edu/~music/cmp/archives/cmsip/readings/music-theory.htm)
-* [CMU Computer Music Project](https://www.cs.cmu.edu/~music/cmp/index.html)
-<!-- * [The Hearing Garden](https://www.hz-ol.de/en/listening-garden.html) -->
-* [Music21](https://www.music21.org/music21docs/)
-* [LibRosa](https://librosa.org/doc/latest/index.html)
-* [Modest](https://github.com/esbudylin/modest)
-
-
-### Music Notation
-
-* [MuseScore](https://musescore.org)
-* [LilyPond](https://lilypond.org)
-
+* [Audacity](https://www.audacityteam.org)
+* [ocenaudio](https://www.ocenaudio.com)
 
 ### Audio Synthesis & Processing
 
@@ -120,24 +104,10 @@ such lines, but in the meantime feel free to browse around.
 * [Composers Desktop Project](https://www.composersdesktop.com)
     * [Download](https://www.unstablesound.net/cdp.html)
 
-### Live Coding
+### Auditory Modeling
 
-* [TidalCycles](https://tidalcycles.org)
-* [Strudel](https://strudel.cc)
-* [Estuary](https://estuary.mcmaster.ca)
-
-### Audio Analysis & Editing
-
-* [Audacity](https://www.audacityteam.org)
-* [ocenaudio](https://www.ocenaudio.com)
-
-### Algorithmic Composition
-
-* [AthenaCL](https://github.com/ales-tsurko/athenaCL) (modern fork by Ales Tsurko)
-    * [moribund original by Christopher Ariza](https://code.google.com/archive/p/athenacl/) (Ariza was one of the lead developers on music21, but seems to have moved away from music. His [home site](https://www.flexatone.net) makes no mention of AthenaCL.
-* [FluCoMa](https://www.flucoma.org)
-    * [DataKnot](https://rodrigoconstanzo.com/data-knot/)
-* [NotaGen](https://github.com/ElectricAlexis/NotaGen)
+* [Auditory Modeling Toolbox](https://amtoolbox.org)
+* [Al Bregman's Auditory Scene Analysis](https://webpages.mcgill.ca/staff/Group2/abregm1/web/)
 
 ### Sonification
 
@@ -148,4 +118,32 @@ such lines, but in the meantime feel free to browse around.
 * [STRAUSS](https://github.com/james-trayford/strauss)
     * [docs](https://strauss.readthedocs.io/en/latest/)
     * [paper](https://joss.theoj.org/papers/10.21105/joss.07875)
+
+### Music Analysis
+
+* [Dannenberg Introduction to Music Concepts](https://www.cs.cmu.edu/~music/cmp/archives/cmsip/readings/music-theory.htm)
+* [CMU Computer Music Project](https://www.cs.cmu.edu/~music/cmp/index.html)
+<!-- * [The Hearing Garden](https://www.hz-ol.de/en/listening-garden.html) -->
+* [Music21](https://www.music21.org/music21docs/)
+* [LibRosa](https://librosa.org/doc/latest/index.html)
+* [Modest](https://github.com/esbudylin/modest)
+
+### Music Notation
+
+* [MuseScore](https://musescore.org)
+* [LilyPond](https://lilypond.org)
+
+### Live Coding
+
+* [TidalCycles](https://tidalcycles.org)
+* [Strudel](https://strudel.cc)
+* [Estuary](https://estuary.mcmaster.ca)
+
+### Algorithmic Composition
+
+* [AthenaCL](https://github.com/ales-tsurko/athenaCL) (modern fork by Ales Tsurko)
+    * [moribund original by Christopher Ariza](https://code.google.com/archive/p/athenacl/) (Ariza was one of the lead developers on music21, but seems to have moved away from music. His [home site](https://www.flexatone.net) makes no mention of AthenaCL.
+* [FluCoMa](https://www.flucoma.org)
+    * [DataKnot](https://rodrigoconstanzo.com/data-knot/)
+* [NotaGen](https://github.com/ElectricAlexis/NotaGen)
 
