@@ -142,7 +142,7 @@ such lines, but in the meantime feel free to browse around.
 ### Algorithmic Composition
 
 * [AthenaCL](https://github.com/ales-tsurko/athenaCL) (modern fork by Ales Tsurko)
-    * [moribund original by Christopher Ariza](https://code.google.com/archive/p/athenacl/) (Ariza was one of the lead developers on music21, but seems to have moved away from music. His [home site](https://www.flexatone.net) makes no mention of AthenaCL.
+    * [moribund original by Christopher Ariza](https://code.google.com/archive/p/athenacl/) (Ariza was one of the lead developers on music21, but seems to have moved away from music. His [home site](https://www.flexatone.net) makes no mention of AthenaCL.)
 * [FluCoMa](https://www.flucoma.org)
     * [DataKnot](https://rodrigoconstanzo.com/data-knot/)
 * [NotaGen](https://github.com/ElectricAlexis/NotaGen)
