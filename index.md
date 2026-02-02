@@ -23,6 +23,11 @@ Tutorial code will generally be found in the
 * Lab 3: **Sonification** (29 Jan 2026)
     * [Colab Notebook: Sonification](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_lab3_sonification.ipynb)
 * Lab 4: **Signal Detection & Psychophysics** (5 Feb 2026)
+    * During the lab you will act as experimental subjects in some basic psychophysics
+      experiments that run in your browser. (You will definitely need headphones for these.)
+        * [Calibration](experiments/calibration/?home=/index.html)
+        * [Pitch sensitivity](experiments/pitch/?home=/index.html)
+        * [Detection](experiments/freqlevel/?home=/index.html)
 * Lab 5: **Auditory Scene Analysis** (12 Feb 2026)
 * Lab 6: **Speech** (26 Feb 2026)
 * Lab 7: **Space & Localisation** (5 Mar 2026)
