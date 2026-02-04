@@ -5,14 +5,11 @@ layout: default
 
 # COMP0161 Individual Coursework Assignment 2025/26
 
-## Summary
+## Brief
 
 Your task is to **sonify some data** -- that is, produce an audio representation of the data that captures (some of) its salient features in an intuitive or revealing way.
 
 Some candidate data sources are given below, but you are welcome to choose something else -- indeed, we very much encourage you to select a dataset that aligns with your own interests.
-
-
-## Tools & Technologies
 
 Ifat covered different approaches to sonification in her lecture of week 3, and we looked at a very simple example in that week's tutorial. You may draw on that example, but you must do your own analysis and design -- do not simply reproduce the (often arbitrary) choices from the tutorial.
 
@@ -50,7 +47,7 @@ There are **many** computational tools available for creating and manipulating s
 * [Data Sonifyer](https://studio.datasonifyer.de/en)
 * [STRAUSS](https://strauss.readthedocs.io/en/latest/)
 
-(It is okay to use these, but you may find them limiting -- they impose their own assumptions about what's being done, which can be quite simplistic.)
+(It is okay to use these, but you may find them limiting -- they impose their own assumptions about what's being done, which may not accord with yours.)
 
 You will probably need an audio editor. If you don't have anything that you're already familiar with, [Audacity](https://www.audacityteam.org) is free, capable and very widely used. You probably *won't* need a "Desktop Audio Workstation" or DAW, and if you do you probably know it already. But GarageBand is free on Mac & iOS, Cakewalk is free (up to a point) on Windows & Mac, and BandLab is free online.
 
@@ -85,7 +82,7 @@ Specifically:
 * You **may not** use audio-specific generative AI systems like Suno or Udio that produce sound in response to a prompt or description.
 * You **may** use dedicated machine learning models such as WaveNet or Magenta DDSP, **provided** that you are individually responsible for defining and implementing exactly what you do with them. You will need to document this in your report.
 * You **may** use an AI coding assistant such as Copilot or Cursor to help with programming tasks, **provided** that you are individually responsible for designing and specifying the tasks being implemented. You will need to document this in your report.
-* You **may** use music tools such as the "virtual drummer" in GarageBand to produce simple background accompaniment or other elements included in your audio, **provided** their role in the final product is decorative or supplementary and does not substantially contribute to the semantics of your sonification.
+* You **may** use music tools such as the "virtual drummer" in GarageBand to produce simple background accompaniment or other elements included in your audio, **provided** their role in the final product is decorative or supplementary and does not substantially contribute to the semantics of your sonification. You will need to document this in your report.
 
 **IMPORTANT: You must provide a statement in your report explicitly documenting all uses of GenAI, specifying the systems and/or models used and what they were used for. This statement counts towards your page and word limits. It is not worth any marks in itself.**
 
