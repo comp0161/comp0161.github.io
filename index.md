@@ -104,6 +104,7 @@ such lines, but in the meantime feel free to browse around.
 * [Sound As Pure Form](https://github.com/lfnoise/sapf)
 * [FluidSynth](https://www.fluidsynth.org)
 * [VCV Rack](https://vcvrack.com/Rack)
+* [SignalFlow](https://signalflow.dev)
 * [Pedalboard](https://github.com/spotify/pedalboard)
 * [SoundThread](https://github.com/j-p-higgins/SoundThread)
 * [Composers Desktop Project](https://www.composersdesktop.com)
