@@ -89,7 +89,7 @@ Specifically:
 
 ## Submission Format
 
-Your submission must consist of **exactly 2 files**:
+Your submission must consist of **exactly 2 files**, submitted together a single **zip** archive:
 
 * An **audio file** of 60-90 seconds duration, containing the actual sonification.
     * This can be a representative clip or excerpt from a larger output, but if so the excerpt should be self-contained. For the purposes of this coursework it will be judged in isolation.
