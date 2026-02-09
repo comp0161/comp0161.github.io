@@ -81,6 +81,14 @@ Tutorial code will generally be found in the
     * [Part 3 — Synthesis & Effects](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part3_synth_fx.ipynb) (opens in Google Colab)
 -->
 
+## Coursework
+
+There is one assessed coursework component, worth 30% of the overall module marks.
+Details of this assignment can be found at the link below.
+
+* [Individual Coursework Brief](coursework.html)
+
+
 ## Links & Resources
 
 Some of these may be discussed or used in lectures or practicals, others
