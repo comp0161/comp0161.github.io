@@ -29,6 +29,9 @@ Tutorial code will generally be found in the
         * [Pitch sensitivity](experiments/pitch/?home=/index.html)
         * [Detection](experiments/freqlevel/?home=/index.html)
 * Lab 5: **Auditory Scene Analysis** (12 Feb 2026)
+    * [Colab Notebook: Computational Auditory Scene Analysis](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_lab5_casa.ipynb)
+    * [`lab05.tidal`](https://github.com/comp0161/tutorials/blob/main/lab05.tidal)
+      is a [Tidal Cycles](https://tidalcycles.org) script used to produce some sound examples in the tutorial.
 * Lab 6: **Speech** (26 Feb 2026)
 * Lab 7: **Space & Localisation** (5 Mar 2026)
 * Lab 8: **Pitch & Texture** (12 Mar 2026)
