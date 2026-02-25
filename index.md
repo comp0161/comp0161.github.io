@@ -33,6 +33,18 @@ Tutorial code will generally be found in the
     * [`lab05.tidal`](https://github.com/comp0161/tutorials/blob/main/lab05.tidal)
       is a [Tidal Cycles](https://tidalcycles.org) script used to produce some sound examples in the tutorial.
 * Lab 6: **Speech** (26 Feb 2026)
+    * If you would like to try viewing your formants and segmenting a speech spectrogram, your best bet is
+      probably [Audacity](https://www.audacityteam.org) a free, cross-platform and full-featured audio
+      recording and editing application with built-in spectrogram capabilities.
+    * You could also use a plug-in such as [TB Spectrogram](https://www.toneboosters.com/tb_spectrogram_v1.html)
+      with your preferred audio app.
+    * Or do it in code with an audio library such as [librosa](https://librosa.org) or [pyfar](https://pyfar-gallery.readthedocs.io/en/latest/).
+    * OpenAI's [Whisper](https://github.com/openai/whisper) is free, open source and runs locally.
+      It may not be the last word in speech recognition, but it sets the baseline pretty high.
+      (I'm using the [mlx-whisper](https://pypi.org/project/mlx-whisper/) package, which is optimised for
+      Apple Silicon.)
+    * [Blind Source Separation example](https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html) from
+      [scikit-learn](https://scikit-learn.org) using [Independent Component Analysis](https://scikit-learn.org/stable/modules/decomposition.html#ica)
 * Lab 7: **Space & Localisation** (5 Mar 2026)
 * Lab 8: **Pitch & Texture** (12 Mar 2026)
 * Lab 9: **Generating Music with Deep Learning** (19 Mar 2026)
