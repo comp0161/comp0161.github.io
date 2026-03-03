@@ -46,6 +46,7 @@ Tutorial code will generally be found in the
     * [Blind Source Separation example](https://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html) from
       [scikit-learn](https://scikit-learn.org) using [Independent Component Analysis](https://scikit-learn.org/stable/modules/decomposition.html#ica)
 * Lab 7: **Space & Localisation** (5 Mar 2026)
+    * [Colab Notebook: Auditory Localisation](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_lab7_space.ipynb)
 * Lab 8: **Pitch & Texture** (12 Mar 2026)
 * Lab 9: **Generating Music with Deep Learning** (19 Mar 2026)
 
