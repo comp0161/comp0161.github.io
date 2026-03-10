@@ -48,6 +48,12 @@ Tutorial code will generally be found in the
 * Lab 7: **Space & Localisation** (5 Mar 2026)
     * [Colab Notebook: Auditory Localisation](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_lab7_space.ipynb)
 * Lab 8: **Pitch & Texture** (12 Mar 2026)
+    * [Binaural Beats](experiments/binaural/?home=/index.html) web-based experiment
+    * [`lab08.sc`](https://github.com/comp0161/tutorials/blob/main/lab08.sc) is a
+      [SuperCollider](https://supercollider.github.io) script used for
+      various sound examples in the tutorial
+    * [Hearing Harmony](beats-etc.html) is a slightly cheesy interactive webaudio
+      take on very similar material, vibe coded with Claude
 * Lab 9: **Generating Music with Deep Learning** (19 Mar 2026)
 
 <!--

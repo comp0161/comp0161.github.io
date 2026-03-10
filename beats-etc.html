@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hearing Harmony — An Interactive Acoustics Tutorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #c8a96e;
+    --accent2: #7eb8c8;
+    --accent3: #c87e7e;
+    --text: #e8e4dc;
+    --text-dim: #888;
+    --text-dimmer: #444;
+    --green: #7ec87e;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --serif: 'Playfair Display', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Subtle grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 24px 120px;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 72px;
+    border-left: 2px solid var(--accent);
+    padding-left: 24px;
+  }
+
+  header .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  header h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  header h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  header p {
+    margin-top: 16px;
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 520px;
+  }
+
+  /* Audio context banner */
+  #audio-banner {
+    background: var(--surface2);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  #audio-banner .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 64px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    background: var(--surface);
+    padding: 20px 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .section-body {
+    background: var(--surface);
+    padding: 28px;
+  }
+
+  .section-body p {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-bottom: 24px;
+    max-width: 620px;
+  }
+
+  /* Controls */
+  .control-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-dim);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+    text-transform: uppercase;
+  }
+
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .btn.danger { border-color: var(--accent3); }
+  .btn.danger:hover, .btn.danger.active { background: var(--accent3); color: var(--bg); border-color: var(--accent3); }
+  .btn.safe { border-color: var(--green); }
+  .btn.safe:hover, .btn.safe.active { background: var(--green); color: var(--bg); border-color: var(--green); }
+
+  .slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .slider-label span:last-child {
+    color: var(--accent);
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+
+  input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3); }
+
+  /* Readout boxes */
+  .readout {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 16px 20px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 16px;
+    line-height: 2;
+  }
+
+  .readout .val { color: var(--accent); }
+  .readout .hi { color: var(--accent2); }
+  .readout .warn { color: var(--accent3); }
+  .readout .ok { color: var(--green); }
+
+  /* Waveform canvas */
+  canvas {
+    width: 100%;
+    height: 80px;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-top: 16px;
+    background: var(--bg);
+  }
+
+  /* Interval grid */
+  .interval-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .interval-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-dim);
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: left;
+    transition: all 0.15s;
+    line-height: 1.6;
+  }
+
+  .interval-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+  .interval-btn.active { border-color: var(--accent2); background: rgba(126,184,200,0.1); color: var(--accent2); }
+  .interval-btn .ratio { color: var(--accent); display: block; font-size: 13px; }
+  .interval-btn .name { color: var(--text); display: block; font-size: 12px; }
+  .interval-btn .cents { color: var(--text-dim); font-size: 10px; }
+
+  /* JI vs ET comparison */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 520px) { .comparison { grid-template-columns: 1fr; } }
+
+  .cmp-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 16px;
+    background: var(--bg);
+  }
+
+  .cmp-card h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .cmp-card.just h4 { color: var(--green); }
+  .cmp-card.et h4 { color: var(--accent3); }
+
+  .cmp-card .freq-display {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 2;
+  }
+
+  .cmp-card .freq-display span { color: var(--text); }
+
+  .big-play {
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 14px;
+    border: 1px solid;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 12px;
+    transition: all 0.15s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .cmp-card.just .big-play { border-color: var(--green); color: var(--green); }
+  .cmp-card.just .big-play:hover, .cmp-card.just .big-play.active { background: var(--green); color: var(--bg); }
+  .cmp-card.et .big-play { border-color: var(--accent3); color: var(--accent3); }
+  .cmp-card.et .big-play:hover, .cmp-card.et .big-play.active { background: var(--accent3); color: var(--bg); }
+
+  /* Beat meter */
+  .beat-meter {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .beat-fill {
+    height: 100%;
+    background: var(--accent3);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  /* Wolf fifth section */
+  .wolf-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  /* Spectrum canvas */
+  #spectrum-canvas {
+    height: 100px;
+  }
+
+  /* Footer note */
+  .footnote {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dimmer);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 24px;
+    line-height: 1.8;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  select {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  select:focus { border-color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="eyebrow">Interactive Acoustics Tutorial</div>
+    <h1>Hearing <em>Harmony</em></h1>
+    <p>Explore pitch, beats, roughness, consonance, and the difference between just intonation and equal temperament — using your ears as the instrument.</p>
+  </header>
+
+  <div id="audio-banner">
+    <div class="dot"></div>
+    <span id="audio-status">Click any Play button to initialise the Web Audio engine</span>
+  </div>
+
+  <!-- 1. PITCH & OCTAVES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Pitch & Octaves</span>
+    </div>
+    <div class="section-body">
+      <p>Pitch is simply the frequency of a sound wave — how many times per second the air pressure oscillates. An <strong>octave</strong> is an exact doubling: 220 → 440 → 880 Hz. Most people immediately recognise octaves as the "same note, higher". Try dragging the slider and listen to the jumps at each octave.</p>
+      <div class="control-row">
+        <div class="slider-group">
+          <div class="slider-label"><span>Frequency</span><span id="pitch-hz-display">440 Hz</span></div>
+          <input type="range" id="pitch-slider" min="110" max="1760" value="440" step="1">
+        </div>
+        <button class="btn" id="pitch-play-btn" onclick="togglePitch()">▶ Play</button>
+      </div>
+      <div class="control-row">
+        <button class="btn" onclick="setPitch(110)">110 Hz</button>
+        <button class="btn" onclick="setPitch(220)">220 Hz</button>
+        <button class="btn" onclick="setPitch(440)">440 Hz (A4)</button>
+        <button class="btn" onclick="setPitch(880)">880 Hz</button>
+        <button class="btn" onclick="setPitch(1760)">1760 Hz</button>
+      </div>
+      <canvas id="pitch-canvas"></canvas>
+      <div class="readout">
+        Frequency: <span class="val" id="pr-freq">440</span> Hz &nbsp;|&nbsp;
+        Period: <span class="val" id="pr-period">2.27</span> ms &nbsp;|&nbsp;
+        Octave from A1: <span class="val" id="pr-octave">3</span>
+      </div>
+      <div class="footnote">The sine wave shown above is not the actual waveform — it's drawn at a reduced frequency for visual clarity.</div>
+    </div>
+  </div>
+
+  <!-- 2. BEATS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Beats & Tuning</span>
+    </div>
+    <div class="section-body">
+      <p>When two close frequencies sound together, they alternately reinforce and cancel. The rate of this <strong>beating</strong> equals the frequency difference. At 440 + 443 Hz you'll hear a tone wobbling 3 times per second. This is how musicians tune: when the beating stops, the notes are in unison.</p>
+      <div class="control-row">
+        <button class="btn safe" id="beats-play-btn" onclick="toggleBeats()">▶ Play Both</button>
+        <button class="btn" onclick="setBeatsOffset(0)">In Tune</button>
+        <button class="btn" onclick="setBeatsOffset(1)">+1 Hz</button>
+        <button class="btn" onclick="setBeatsOffset(3)">+3 Hz</button>
+        <button class="btn" onclick="setBeatsOffset(7)">+7 Hz</button>
+        <button class="btn" onclick="setBeatsOffset(15)">+15 Hz</button>
+      </div>
+      <div class="control-row">
+        <div class="slider-group">
+          <div class="slider-label"><span>Detuning of tone 2</span><span id="beats-offset-display">+4 Hz</span></div>
+          <input type="range" id="beats-slider" min="0" max="30" value="4" step="0.5" oninput="updateBeatsSlider(this.value)">
+        </div>
+      </div>
+      <canvas id="beats-canvas"></canvas>
+      <div class="readout">
+        Tone 1: <span class="val">440.0</span> Hz &nbsp;|&nbsp;
+        Tone 2: <span class="val" id="beats-f2">444.0</span> Hz &nbsp;|&nbsp;
+        Beat rate: <span class="val" id="beats-rate">4.0</span> Hz &nbsp;|&nbsp;
+        Character: <span id="beats-char" class="ok">slow wobble</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ROUGHNESS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Roughness & Critical Bands</span>
+    </div>
+    <div class="section-body">
+      <p>As the frequency separation grows beyond ~15–20 Hz, individual beats become indistinct and the sound turns <strong>rough</strong> or <strong>harsh</strong>. This happens when two frequencies fall within the same "critical band" of the cochlea — roughly 1/3 of an octave. Maximum roughness occurs around 30–40 Hz separation; beyond that, we start to hear two separate pitches.</p>
+      <div class="control-row">
+        <button class="btn danger" id="rough-play-btn" onclick="toggleRoughness()">▶ Play</button>
+      </div>
+      <div class="control-row">
+        <div class="slider-group">
+          <div class="slider-label"><span>Separation from 440 Hz</span><span id="rough-sep-display">+25 Hz</span></div>
+          <input type="range" id="rough-slider" min="0" max="150" value="25" step="1" oninput="updateRoughnessSlider(this.value)">
+        </div>
+      </div>
+      <div class="readout">
+        Tone 1: <span class="val">440</span> Hz &nbsp;|&nbsp;
+        Tone 2: <span class="val" id="rough-f2">465</span> Hz &nbsp;|&nbsp;
+        Separation: <span class="val" id="rough-sep">25</span> Hz &nbsp;|&nbsp;
+        Percept: <span id="rough-percept" class="warn">rough / harsh</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. INTERVALS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Consonance & Dissonance</span>
+    </div>
+    <div class="section-body">
+      <p>When frequency ratios are simple whole numbers, harmonics align and the result sounds smooth — <strong>consonant</strong>. Complex ratios produce clashing harmonics — <strong>dissonance</strong>. Use sawtooth waves (rich in harmonics) to make this contrast vivid. Listen to how "locked in" the octave and fifth feel compared to the minor second.</p>
+      <div class="control-row">
+        <button class="btn" id="interval-play-btn" onclick="toggleIntervals()">▶ Play Interval</button>
+        <select id="timbre-select" onchange="updateTimbre(this.value)">
+          <option value="sine">Sine (pure tone)</option>
+          <option value="sawtooth" selected>Sawtooth (bright)</option>
+          <option value="square">Square (hollow)</option>
+        </select>
+      </div>
+      <div class="interval-grid" id="interval-grid"></div>
+      <div class="readout" id="interval-readout">
+        Select an interval above to see details
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. JUST vs ET -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Just Intonation vs Equal Temperament</span>
+    </div>
+    <div class="section-body">
+      <p>Equal temperament divides the octave into 12 equal semitones (each a ratio of 2<sup>1/12</sup>). This lets us play in any key — but almost every interval is slightly mistuned compared to pure whole-number ratios. The <strong>major third</strong> is the most dramatic case: ET is 14 cents sharp, producing an audible ~7 Hz beat between harmonics. Use sawtooth or organ tones to hear it clearly.</p>
+
+      <div class="control-row">
+        <select id="ji-et-select" onchange="updateJiEtInterval(this.value)">
+          <option value="fifth">Perfect Fifth (3:2)</option>
+          <option value="third" selected>Major Third (5:4) — most dramatic!</option>
+          <option value="fourth">Perfect Fourth (4:3)</option>
+          <option value="minor_third">Minor Third (6:5)</option>
+        </select>
+        <select id="ji-et-timbre" onchange="updateJiEtTimbre(this.value)">
+          <option value="sawtooth" selected>Sawtooth (best for hearing beats)</option>
+          <option value="sine">Sine (pure)</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+
+      <div class="comparison">
+        <div class="cmp-card just">
+          <h4>Just Intonation</h4>
+          <div class="freq-display" id="ji-freqs">—</div>
+          <button class="big-play" id="ji-play-btn" onclick="toggleJI()">▶ Play Just</button>
+          <div class="beat-meter"><div class="beat-fill" id="ji-beat-fill" style="width:2%"></div></div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:6px" id="ji-beat-label">beats: ~0 Hz</div>
+        </div>
+        <div class="cmp-card et">
+          <h4>Equal Temperament</h4>
+          <div class="freq-display" id="et-freqs">—</div>
+          <button class="big-play" id="et-play-btn" onclick="toggleET()">▶ Play ET</button>
+          <div class="beat-meter"><div class="beat-fill" id="et-beat-fill" style="width:30%"></div></div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:6px" id="et-beat-label">beats: ~7 Hz</div>
+        </div>
+      </div>
+
+      <div class="readout" id="ji-et-readout">Select an interval above</div>
+
+      <hr class="divider">
+      <p>Now play a full <strong>major triad</strong> — root + third + fifth. The beating in ET builds across all three pairs of harmonics simultaneously.</p>
+      <div class="control-row">
+        <button class="btn safe" onclick="playTriad('just')">▶ Just Triad</button>
+        <button class="btn danger" onclick="playTriad('et')">▶ ET Triad</button>
+        <button class="btn" onclick="stopTriad()">■ Stop</button>
+      </div>
+      <div class="readout" id="triad-readout">—</div>
+    </div>
+  </div>
+
+  <!-- 6. TEMPERAMENT HISTORY -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">The Wolf Fifth & Temperament History</span>
+    </div>
+    <div class="section-body">
+      <p>If you stack 12 pure perfect fifths (3:2 ratio each), you travel through all 12 notes and "should" return to the starting pitch — but you land 23.5 cents sharp. This gap is the <strong>Pythagorean comma</strong>. Meantone temperament, common before 1700, kept thirds pure but had to dump the error into one "wolf fifth" — a horribly out-of-tune fifth that composers avoided. Equal temperament spread the comma evenly across all 12 fifths, each about 2 cents flat.</p>
+      <div class="wolf-row">
+        <button class="btn safe" onclick="playWolfCompare('pure')">▶ Pure Fifth (3:2)</button>
+        <button class="btn danger" onclick="playWolfCompare('wolf')">▶ Wolf Fifth (meantone)</button>
+        <button class="btn" onclick="playWolfCompare('et')">▶ ET Fifth (2 cents flat)</button>
+        <button class="btn" onclick="stopWolf()">■ Stop</button>
+      </div>
+      <div class="readout" id="wolf-readout">
+        Pure fifth: <span class="ok">702.0 cents</span> &nbsp;|&nbsp;
+        ET fifth: <span class="val">700.0 cents</span> &nbsp;|&nbsp;
+        Wolf fifth: <span class="warn">678.5 cents</span>
+      </div>
+      <div class="readout" style="margin-top:10px" id="wolf-playing">Select a fifth above to hear it</div>
+      <hr class="divider">
+      <p>Finally: the Pythagorean comma in action. Hear what happens when 12 stacked pure fifths are compared to 7 pure octaves — they should be the same pitch, but they're not.</p>
+      <div class="control-row">
+        <button class="btn" onclick="playCommaDemo()">▶ Demonstrate Pythagorean Comma</button>
+        <button class="btn" onclick="stopCommaDemo()">■ Stop</button>
+      </div>
+      <div class="readout" id="comma-readout">12 pure fifths → <span class="warn">+23.46 cents</span> vs 7 octaves</div>
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<script>
+// ============================================================
+// AUDIO ENGINE
+// ============================================================
+let ctx = null;
+let masterGain = null;
+
+function getCtx() {
+  if (!ctx) {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = ctx.createGain();
+    masterGain.gain.value = 0.35;
+    masterGain.connect(ctx.destination);
+    document.getElementById('audio-status').textContent = 'Audio engine ready — Web Audio API';
+  }
+  if (ctx.state === 'suspended') ctx.resume();
+  return ctx;
+}
+
+// Node registry for stopping things
+const nodes = {};
+
+function makeOsc(freq, type, gainVal, id) {
+  const c = getCtx();
+  const osc = c.createOscillator();
+  const g = c.createGain();
+  osc.frequency.value = freq;
+  osc.type = type;
+  g.gain.value = 0;
+  osc.connect(g);
+  g.connect(masterGain);
+  osc.start();
+  g.gain.setTargetAtTime(gainVal, c.currentTime, 0.02);
+  if (id) nodes[id] = { osc, g };
+  return { osc, g };
+}
+
+function stopNode(id) {
+  if (nodes[id]) {
+    const { osc, g } = nodes[id];
+    g.gain.setTargetAtTime(0, getCtx().currentTime, 0.02);
+    setTimeout(() => { try { osc.stop(); } catch(e){} }, 200);
+    delete nodes[id];
+  }
+}
+
+function stopAll() {
+  Object.keys(nodes).forEach(stopNode);
+}
+
+// ============================================================
+// 1. PITCH
+// ============================================================
+let pitchPlaying = false;
+
+function togglePitch() {
+  if (pitchPlaying) {
+    stopNode('pitch');
+    pitchPlaying = false;
+    document.getElementById('pitch-play-btn').classList.remove('active');
+    document.getElementById('pitch-play-btn').textContent = '▶ Play';
+    stopDrawPitch();
+  } else {
+    const freq = parseFloat(document.getElementById('pitch-slider').value);
+    makeOsc(freq, 'sine', 0.5, 'pitch');
+    pitchPlaying = true;
+    document.getElementById('pitch-play-btn').classList.add('active');
+    document.getElementById('pitch-play-btn').textContent = '■ Stop';
+    startDrawPitch();
+  }
+}
+
+function setPitch(f) {
+  document.getElementById('pitch-slider').value = f;
+  updatePitchSlider(f);
+  if (pitchPlaying && nodes['pitch']) {
+    nodes['pitch'].osc.frequency.setTargetAtTime(f, getCtx().currentTime, 0.05);
+  }
+}
+
+function updatePitchSlider(v) {
+  v = parseFloat(v);
+  document.getElementById('pitch-hz-display').textContent = v.toFixed(0) + ' Hz';
+  document.getElementById('pr-freq').textContent = v.toFixed(1);
+  document.getElementById('pr-period').textContent = (1000/v).toFixed(2);
+  document.getElementById('pr-octave').textContent = Math.round(Math.log2(v/55));
+  if (pitchPlaying && nodes['pitch']) {
+    nodes['pitch'].osc.frequency.setTargetAtTime(v, getCtx().currentTime, 0.05);
+  }
+}
+
+document.getElementById('pitch-slider').addEventListener('input', function() {
+  updatePitchSlider(this.value);
+});
+
+let pitchAnimId = null;
+let pitchAnalyser = null;
+
+function startDrawPitch() {
+  const c = getCtx();
+
+  // Build analyser in the signal chain: osc → gainNode → analyser → masterGain
+  pitchAnalyser = c.createAnalyser();
+  pitchAnalyser.fftSize = 4096;
+
+  // Rewire: disconnect pitch gain from masterGain, insert analyser between them
+  const g = nodes['pitch'].g;
+  g.disconnect();
+  g.connect(pitchAnalyser);
+  pitchAnalyser.connect(masterGain);
+
+  const canvas = document.getElementById('pitch-canvas');
+  const ctx2 = canvas.getContext('2d');
+  const buf = new Float32Array(4096);
+
+  function frame() {
+    pitchAnimId = requestAnimationFrame(frame);
+
+    if (canvas.width !== canvas.offsetWidth) canvas.width = canvas.offsetWidth;
+    if (canvas.height !== canvas.offsetHeight) canvas.height = canvas.offsetHeight;
+    const w = canvas.width, h = canvas.height;
+
+    pitchAnalyser.getFloatTimeDomainData(buf);
+    ctx2.clearRect(0, 0, w, h);
+
+    // Centre line
+    ctx2.strokeStyle = '#2a2a2a';
+    ctx2.lineWidth = 1;
+    ctx2.beginPath(); ctx2.moveTo(0, h/2); ctx2.lineTo(w, h/2); ctx2.stroke();
+
+    // Fixed 20ms window — low frequencies show few cycles, high frequencies show many
+    const sampleRate = c.sampleRate;
+    const windowMs = 20;
+    const showSamples = Math.min(Math.floor(sampleRate * windowMs / 1000), buf.length);
+
+    // Find first upward zero-crossing within first quarter of buffer for stable trigger
+    let start = 0;
+    for (let i = 1; i < showSamples / 2; i++) {
+      if (buf[i - 1] < 0 && buf[i] >= 0) { start = i; break; }
+    }
+
+    ctx2.strokeStyle = '#c8a96e';
+    ctx2.lineWidth = 1.5;
+    ctx2.beginPath();
+    for (let i = 0; i < showSamples; i++) {
+      const x = (i / showSamples) * w;
+      const y = h / 2 - buf[start + i] * (h / 2 - 6);
+      i === 0 ? ctx2.moveTo(x, y) : ctx2.lineTo(x, y);
+    }
+    ctx2.stroke();
+  }
+  frame();
+}
+
+function stopDrawPitch() {
+  if (pitchAnimId) { cancelAnimationFrame(pitchAnimId); pitchAnimId = null; }
+  // Restore direct connection to masterGain if node still exists
+  if (nodes['pitch'] && pitchAnalyser) {
+    try { nodes['pitch'].g.disconnect(); } catch(e) {}
+    nodes['pitch'].g.connect(masterGain);
+  }
+  pitchAnalyser = null;
+  // Clear canvas to flat line
+  const canvas = document.getElementById('pitch-canvas');
+  const ctx2 = canvas.getContext('2d');
+  if (canvas.offsetWidth) canvas.width = canvas.offsetWidth;
+  ctx2.clearRect(0, 0, canvas.width, canvas.height);
+  ctx2.strokeStyle = '#2a2a2a';
+  ctx2.lineWidth = 1;
+  ctx2.beginPath(); ctx2.moveTo(0, canvas.height / 2); ctx2.lineTo(canvas.width, canvas.height / 2); ctx2.stroke();
+}
+
+// ============================================================
+// 2. BEATS
+// ============================================================
+let beatsPlaying = false;
+let beatsOffset = 4;
+let beatsAnimId = null;
+
+function toggleBeats() {
+  if (beatsPlaying) {
+    stopNode('beat1'); stopNode('beat2');
+    beatsPlaying = false;
+    document.getElementById('beats-play-btn').classList.remove('active');
+    document.getElementById('beats-play-btn').textContent = '▶ Play Both';
+    stopBeatsAnim();
+  } else {
+    makeOsc(440, 'sine', 0.4, 'beat1');
+    makeOsc(440 + beatsOffset, 'sine', 0.4, 'beat2');
+    beatsPlaying = true;
+    document.getElementById('beats-play-btn').classList.add('active');
+    document.getElementById('beats-play-btn').textContent = '■ Stop';
+    animateBeats();
+  }
+}
+
+function setBeatsOffset(v) {
+  beatsOffset = v;
+  document.getElementById('beats-slider').value = v;
+  updateBeatsDisplay();
+  if (beatsPlaying && nodes['beat2']) {
+    nodes['beat2'].osc.frequency.setTargetAtTime(440 + v, getCtx().currentTime, 0.05);
+  }
+}
+
+function updateBeatsSlider(v) {
+  beatsOffset = parseFloat(v);
+  updateBeatsDisplay();
+  if (beatsPlaying && nodes['beat2']) {
+    nodes['beat2'].osc.frequency.setTargetAtTime(440 + beatsOffset, getCtx().currentTime, 0.05);
+  }
+}
+
+function updateBeatsDisplay() {
+  const v = beatsOffset;
+  document.getElementById('beats-offset-display').textContent = (v > 0 ? '+' : '') + v.toFixed(1) + ' Hz';
+  document.getElementById('beats-f2').textContent = (440 + v).toFixed(1);
+  document.getElementById('beats-rate').textContent = v.toFixed(1);
+  const charEl = document.getElementById('beats-char');
+  if (v === 0) { charEl.textContent = 'in tune — no beats'; charEl.className = 'ok'; }
+  else if (v < 3) { charEl.textContent = 'very slow wobble'; charEl.className = 'ok'; }
+  else if (v < 8) { charEl.textContent = 'audible beats'; charEl.className = 'val'; }
+  else if (v < 20) { charEl.textContent = 'fast, nervous tremolo'; charEl.className = 'warn'; }
+  else { charEl.textContent = 'merging into roughness'; charEl.className = 'warn'; }
+}
+
+function animateBeats() {
+  const canvas = document.getElementById('beats-canvas');
+  const ctx2 = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  const w = canvas.width, h = canvas.height;
+  let t = 0;
+  function frame() {
+    ctx2.clearRect(0,0,w,h);
+    const f1 = 440, f2 = 440 + beatsOffset;
+    ctx2.strokeStyle = '#7eb8c8';
+    ctx2.lineWidth = 1.5;
+    ctx2.beginPath();
+    for (let x = 0; x <= w; x++) {
+      const tt = t + x * 0.003;
+      const y = h/2 - (Math.sin(tt * f1/440 * 3) + Math.sin(tt * f2/440 * 3)) / 2 * (h/2 - 8);
+      x === 0 ? ctx2.moveTo(x,y) : ctx2.lineTo(x,y);
+    }
+    ctx2.stroke();
+    t += 0.08;
+    beatsAnimId = requestAnimationFrame(frame);
+  }
+  frame();
+}
+function stopBeatsAnim() { if (beatsAnimId) { cancelAnimationFrame(beatsAnimId); beatsAnimId = null; } }
+
+// ============================================================
+// 3. ROUGHNESS
+// ============================================================
+let roughPlaying = false;
+
+function toggleRoughness() {
+  if (roughPlaying) {
+    stopNode('rough1'); stopNode('rough2');
+    roughPlaying = false;
+    document.getElementById('rough-play-btn').classList.remove('active');
+    document.getElementById('rough-play-btn').textContent = '▶ Play';
+  } else {
+    const sep = parseFloat(document.getElementById('rough-slider').value);
+    makeOsc(440, 'sine', 0.4, 'rough1');
+    makeOsc(440 + sep, 'sine', 0.4, 'rough2');
+    roughPlaying = true;
+    document.getElementById('rough-play-btn').classList.add('active');
+    document.getElementById('rough-play-btn').textContent = '■ Stop';
+  }
+}
+
+function updateRoughnessSlider(v) {
+  v = parseFloat(v);
+  document.getElementById('rough-sep-display').textContent = '+' + v + ' Hz';
+  document.getElementById('rough-f2').textContent = (440+v).toFixed(0);
+  document.getElementById('rough-sep').textContent = v;
+  const p = document.getElementById('rough-percept');
+  if (v === 0) { p.textContent = 'unison — fused'; p.className = 'ok'; }
+  else if (v < 10) { p.textContent = 'slow, clear beats'; p.className = 'ok'; }
+  else if (v < 20) { p.textContent = 'faster beats, flutter'; p.className = 'val'; }
+  else if (v < 60) { p.textContent = 'rough / harsh (max ~30–40 Hz)'; p.className = 'warn'; }
+  else if (v < 100) { p.textContent = 'two pitches, still rough'; p.className = 'warn'; }
+  else { p.textContent = 'two distinct pitches, smoother'; p.className = 'val'; }
+  if (roughPlaying) {
+    if (nodes['rough2']) nodes['rough2'].osc.frequency.setTargetAtTime(440+v, getCtx().currentTime, 0.05);
+  }
+}
+
+// ============================================================
+// 4. INTERVALS
+// ============================================================
+const INTERVALS = [
+  { name: 'Octave',       ratio: [2,1],   semis: 12, consonance: 'very consonant' },
+  { name: 'Perfect 5th',  ratio: [3,2],   semis: 7,  consonance: 'consonant' },
+  { name: 'Perfect 4th',  ratio: [4,3],   semis: 5,  consonance: 'consonant' },
+  { name: 'Major 3rd',    ratio: [5,4],   semis: 4,  consonance: 'consonant' },
+  { name: 'Minor 3rd',    ratio: [6,5],   semis: 3,  consonance: 'mildly consonant' },
+  { name: 'Major 6th',    ratio: [5,3],   semis: 9,  consonance: 'mildly consonant' },
+  { name: 'Minor 7th',    ratio: [16,9],  semis: 10, consonance: 'dissonant' },
+  { name: 'Major 2nd',    ratio: [9,8],   semis: 2,  consonance: 'dissonant' },
+  { name: 'Tritone',      ratio: [45,32], semis: 6,  consonance: 'very dissonant' },
+  { name: 'Minor 2nd',    ratio: [16,15], semis: 1,  consonance: 'very dissonant' },
+];
+
+let currentInterval = 1;
+let intervalPlaying = false;
+let intervalTimbre = 'sawtooth';
+
+function buildIntervalGrid() {
+  const grid = document.getElementById('interval-grid');
+  INTERVALS.forEach((iv, i) => {
+    const cents = Math.round(1200 * Math.log2(iv.ratio[0]/iv.ratio[1]));
+    const btn = document.createElement('button');
+    btn.className = 'interval-btn' + (i === currentInterval ? ' active' : '');
+    btn.innerHTML = `<span class="name">${iv.name}</span><span class="ratio">${iv.ratio[0]}:${iv.ratio[1]}</span><span class="cents">${cents} cents &middot; ${iv.consonance}</span>`;
+    btn.onclick = () => selectInterval(i);
+    btn.id = 'ivbtn-' + i;
+    grid.appendChild(btn);
+  });
+  updateIntervalReadout();
+}
+
+function selectInterval(i) {
+  document.querySelectorAll('.interval-btn').forEach((b,j) => b.classList.toggle('active', j===i));
+  currentInterval = i;
+  updateIntervalReadout();
+  if (intervalPlaying) {
+    stopNode('iv1'); stopNode('iv2');
+    const iv = INTERVALS[currentInterval];
+    const f2 = 220 * iv.ratio[0] / iv.ratio[1];
+    makeOsc(220, intervalTimbre, 0.25, 'iv1');
+    makeOsc(f2, intervalTimbre, 0.25, 'iv2');
+  }
+}
+
+function toggleIntervals() {
+  if (intervalPlaying) {
+    stopNode('iv1'); stopNode('iv2');
+    intervalPlaying = false;
+    document.getElementById('interval-play-btn').classList.remove('active');
+    document.getElementById('interval-play-btn').textContent = '▶ Play Interval';
+  } else {
+    const iv = INTERVALS[currentInterval];
+    const f2 = 220 * iv.ratio[0] / iv.ratio[1];
+    makeOsc(220, intervalTimbre, 0.25, 'iv1');
+    makeOsc(f2, intervalTimbre, 0.25, 'iv2');
+    intervalPlaying = true;
+    document.getElementById('interval-play-btn').classList.add('active');
+    document.getElementById('interval-play-btn').textContent = '■ Stop';
+  }
+}
+
+function updateTimbre(v) {
+  intervalTimbre = v;
+  if (intervalPlaying) {
+    stopNode('iv1'); stopNode('iv2');
+    const iv = INTERVALS[currentInterval];
+    const f2 = 220 * iv.ratio[0] / iv.ratio[1];
+    makeOsc(220, intervalTimbre, 0.25, 'iv1');
+    makeOsc(f2, intervalTimbre, 0.25, 'iv2');
+  }
+}
+
+function updateIntervalReadout() {
+  const iv = INTERVALS[currentInterval];
+  const f2 = (220 * iv.ratio[0] / iv.ratio[1]).toFixed(2);
+  const cents = Math.round(1200 * Math.log2(iv.ratio[0]/iv.ratio[1]));
+  const cClass = iv.consonance.includes('very dis') ? 'warn' : iv.consonance.includes('dis') ? 'warn' : 'ok';
+  document.getElementById('interval-readout').innerHTML =
+    `Interval: <span class="val">${iv.name}</span> &nbsp;|&nbsp; ` +
+    `Ratio: <span class="val">${iv.ratio[0]}:${iv.ratio[1]}</span> &nbsp;|&nbsp; ` +
+    `Root: <span class="val">220 Hz</span> &nbsp;|&nbsp; ` +
+    `Upper: <span class="val">${f2} Hz</span> &nbsp;|&nbsp; ` +
+    `${cents} cents &nbsp;|&nbsp; <span class="${cClass}">${iv.consonance}</span>`;
+}
+
+// ============================================================
+// 5. JUST vs ET
+// ============================================================
+const JI_ET_INTERVALS = {
+  third:      { name: 'Major Third',    just: [5,4],  et_semis: 4,  beat_harm: [4,5],  desc: 'Just 5:4 vs ET 2^(4/12). ET is +14 cents, beating between 4th harmonic of root and 5th of upper.' },
+  fifth:      { name: 'Perfect Fifth',  just: [3,2],  et_semis: 7,  beat_harm: [2,3],  desc: 'Just 3:2 vs ET 2^(7/12). ET is −2 cents (Pythagorean comma / 12). Very subtle — listen carefully.' },
+  fourth:     { name: 'Perfect Fourth', just: [4,3],  et_semis: 5,  beat_harm: [3,4],  desc: 'Just 4:3 vs ET 2^(5/12). ET is +2 cents. Similarly subtle to the fifth.' },
+  minor_third:{ name: 'Minor Third',    just: [6,5],  et_semis: 3,  beat_harm: [5,6],  desc: 'Just 6:5 vs ET 2^(3/12). ET is −16 cents. Quite audible on sustained tones.' },
+};
+
+let currentJiEt = 'third';
+let jiEtTimbre = 'sawtooth';
+let jiPlaying = false, etPlaying = false;
+
+function updateJiEtInterval(v) {
+  currentJiEt = v;
+  stopNode('ji1'); stopNode('ji2'); stopNode('et1'); stopNode('et2');
+  jiPlaying = false; etPlaying = false;
+  document.getElementById('ji-play-btn').classList.remove('active');
+  document.getElementById('et-play-btn').classList.remove('active');
+  document.getElementById('ji-play-btn').textContent = '▶ Play Just';
+  document.getElementById('et-play-btn').textContent = '▶ Play ET';
+  renderJiEtInfo();
+}
+
+function updateJiEtTimbre(v) {
+  jiEtTimbre = v;
+  if (jiPlaying) { stopNode('ji1'); stopNode('ji2'); playJI(true); }
+  if (etPlaying) { stopNode('et1'); stopNode('et2'); playET(true); }
+}
+
+function renderJiEtInfo() {
+  const iv = JI_ET_INTERVALS[currentJiEt];
+  const root = 220;
+  const jiUpper = root * iv.just[0] / iv.just[1];
+  const etUpper = root * Math.pow(2, iv.et_semis / 12);
+  const jiCents = 1200 * Math.log2(iv.just[0]/iv.just[1]);
+  const etCents = iv.et_semis * 100;
+  const diff = etCents - jiCents;
+  const beatHz = Math.abs(etUpper * iv.beat_harm[0] - jiUpper * iv.beat_harm[1]);
+  // ET beat on harmonics
+  const etBeat = Math.abs(root * iv.beat_harm[0] * Math.pow(2, iv.et_semis/12) - root * iv.beat_harm[0] * iv.just[0]/iv.just[1]);
+
+  document.getElementById('ji-freqs').innerHTML =
+    `Root: <span>${root} Hz</span><br>Upper: <span>${jiUpper.toFixed(3)} Hz</span><br>Ratio: <span>${iv.just[0]}:${iv.just[1]}</span><br>Cents: <span>${jiCents.toFixed(1)}</span>`;
+  document.getElementById('et-freqs').innerHTML =
+    `Root: <span>${root} Hz</span><br>Upper: <span>${etUpper.toFixed(3)} Hz</span><br>Ratio: <span>2^(${iv.et_semis}/12)</span><br>Cents: <span>${etCents.toFixed(1)}</span>`;
+
+  const etBeatHz = Math.abs(root * iv.beat_harm[1] * Math.pow(2, iv.et_semis/12) - root * iv.just[0]/iv.just[1] * iv.beat_harm[0]);
+  // Actually compute beating of harmonics:
+  // beat = |n * f_et_upper - m * root| roughly
+  const beatRate = Math.abs(iv.beat_harm[1] * etUpper - iv.beat_harm[0] * root);
+
+  document.getElementById('ji-beat-fill').style.width = '3%';
+  document.getElementById('ji-beat-label').textContent = 'beats: ~0 Hz (pure)';
+  const beatPct = Math.min(100, beatRate / 0.5);
+  document.getElementById('et-beat-fill').style.width = Math.min(90, beatPct) + '%';
+  document.getElementById('et-beat-label').textContent = 'harmonic beat rate: ~' + beatRate.toFixed(1) + ' Hz';
+
+  document.getElementById('ji-et-readout').innerHTML =
+    `<span class="val">${iv.name}</span> &nbsp;|&nbsp; ` +
+    `Just: <span class="ok">${jiCents.toFixed(2)} ¢</span> &nbsp;|&nbsp; ` +
+    `ET: <span class="warn">${etCents.toFixed(2)} ¢</span> &nbsp;|&nbsp; ` +
+    `Difference: <span class="warn">${diff > 0 ? '+' : ''}${diff.toFixed(2)} ¢</span><br>` +
+    `<span style="color:var(--text-dim);font-size:11px">${iv.desc}</span>`;
+}
+
+function toggleJI() {
+  if (jiPlaying) {
+    stopNode('ji1'); stopNode('ji2'); jiPlaying = false;
+    document.getElementById('ji-play-btn').classList.remove('active');
+    document.getElementById('ji-play-btn').textContent = '▶ Play Just';
+  } else {
+    stopNode('et1'); stopNode('et2'); etPlaying = false;
+    document.getElementById('et-play-btn').classList.remove('active');
+    document.getElementById('et-play-btn').textContent = '▶ Play ET';
+    playJI(false);
+  }
+}
+
+function playJI(silent) {
+  const iv = JI_ET_INTERVALS[currentJiEt];
+  const root = 220;
+  makeOsc(root, jiEtTimbre, 0.25, 'ji1');
+  makeOsc(root * iv.just[0] / iv.just[1], jiEtTimbre, 0.25, 'ji2');
+  jiPlaying = true;
+  if (!silent) {
+    document.getElementById('ji-play-btn').classList.add('active');
+    document.getElementById('ji-play-btn').textContent = '■ Stop Just';
+  }
+}
+
+function toggleET() {
+  if (etPlaying) {
+    stopNode('et1'); stopNode('et2'); etPlaying = false;
+    document.getElementById('et-play-btn').classList.remove('active');
+    document.getElementById('et-play-btn').textContent = '▶ Play ET';
+  } else {
+    stopNode('ji1'); stopNode('ji2'); jiPlaying = false;
+    document.getElementById('ji-play-btn').classList.remove('active');
+    document.getElementById('ji-play-btn').textContent = '▶ Play Just';
+    playET(false);
+  }
+}
+
+function playET(silent) {
+  const iv = JI_ET_INTERVALS[currentJiEt];
+  const root = 220;
+  makeOsc(root, jiEtTimbre, 0.25, 'et1');
+  makeOsc(root * Math.pow(2, iv.et_semis/12), jiEtTimbre, 0.25, 'et2');
+  etPlaying = true;
+  if (!silent) {
+    document.getElementById('et-play-btn').classList.add('active');
+    document.getElementById('et-play-btn').textContent = '■ Stop ET';
+  }
+}
+
+// Triads
+let triadNodes = [];
+function playTriad(tuning) {
+  stopTriad();
+  const root = 220;
+  let third, fifth;
+  if (tuning === 'just') {
+    third = root * 5/4;
+    fifth = root * 3/2;
+    document.getElementById('triad-readout').innerHTML =
+      `Just triad: <span class="ok">${root} + ${third.toFixed(2)} + ${fifth.toFixed(2)} Hz</span> &nbsp;|&nbsp; ratios 4:5:6`;
+  } else {
+    third = root * Math.pow(2, 4/12);
+    fifth = root * Math.pow(2, 7/12);
+    document.getElementById('triad-readout').innerHTML =
+      `ET triad: <span class="warn">${root} + ${third.toFixed(2)} + ${fifth.toFixed(2)} Hz</span> &nbsp;|&nbsp; thirds beat ~${(5*third - 4*root).toFixed(1)} Hz`;
+  }
+  const t = jiEtTimbre;
+  [root, third, fifth].forEach((f, i) => {
+    makeOsc(f, t, 0.2, 'triad'+i);
+    triadNodes.push('triad'+i);
+  });
+}
+function stopTriad() {
+  ['triad0','triad1','triad2'].forEach(stopNode);
+  triadNodes = [];
+}
+
+// ============================================================
+// 6. WOLF FIFTH
+// ============================================================
+let wolfNode1 = null, wolfNode2 = null;
+
+function playWolfCompare(type) {
+  stopWolf();
+  const root = 220;
+  let upper, label;
+  if (type === 'pure') {
+    upper = root * 3/2; // 330
+    label = `Pure just fifth: <span class="ok">${root} + ${upper.toFixed(3)} Hz</span> — ratio 3:2, 702.0 ¢ — perfectly in tune`;
+  } else if (type === 'wolf') {
+    // Meantone wolf fifth ≈ 737.6 cents (Ab–Eb in quarter-comma meantone)
+    upper = root * Math.pow(2, 737.6/1200);
+    label = `Wolf fifth (meantone): <span class="warn">${root} + ${upper.toFixed(3)} Hz</span> — 737.6 ¢ — avoid at all costs`;
+  } else {
+    upper = root * Math.pow(2, 7/12); // 329.63
+    label = `ET fifth: <span class="val">${root} + ${upper.toFixed(3)} Hz</span> — 700 ¢ — 2 cents narrow, barely perceptible`;
+  }
+  makeOsc(root, 'sawtooth', 0.25, 'wolf1');
+  makeOsc(upper, 'sawtooth', 0.25, 'wolf2');
+  document.getElementById('wolf-playing').innerHTML = label;
+}
+
+function stopWolf() {
+  stopNode('wolf1'); stopNode('wolf2');
+  document.getElementById('wolf-playing').textContent = 'Stopped.';
+}
+
+// Pythagorean comma demo
+let commaDemoRunning = false;
+function playCommaDemo() {
+  stopCommaDemo();
+  commaDemoRunning = true;
+  const c = getCtx();
+  // Play two tones: 7 octaves above A1 = 55 * 128 = 7040 Hz, and 12 pure fifths above A1
+  const sevenOctaves = 55 * Math.pow(2, 7); // 7040
+  const twelveFifths = 55 * Math.pow(3/2, 12); // 7017.58...
+  makeOsc(sevenOctaves, 'sine', 0.3, 'comma1');
+  makeOsc(twelveFifths, 'sine', 0.3, 'comma2');
+  const beat = Math.abs(sevenOctaves - twelveFifths);
+  document.getElementById('comma-readout').innerHTML =
+    `7 octaves: <span class="ok">${sevenOctaves.toFixed(2)} Hz</span> &nbsp;|&nbsp; ` +
+    `12 pure fifths: <span class="warn">${twelveFifths.toFixed(2)} Hz</span> &nbsp;|&nbsp; ` +
+    `beating at <span class="warn">${beat.toFixed(1)} Hz</span> &nbsp;|&nbsp; ` +
+    `= Pythagorean comma (23.46 ¢)`;
+}
+function stopCommaDemo() {
+  stopNode('comma1'); stopNode('comma2');
+  commaDemoRunning = false;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+buildIntervalGrid();
+updateJiEtInterval('third');
+updateBeatsDisplay();
+updateRoughnessSlider(25);
+</script>
+</body>
+</html>
