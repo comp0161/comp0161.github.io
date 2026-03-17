@@ -55,6 +55,9 @@ Tutorial code will generally be found in the
     * [Hearing Harmony](beats-etc.html) is a slightly cheesy interactive webaudio
       take on very similar material, vibe coded with Claude
 * Lab 9: **Generating Music with Deep Learning** (19 Mar 2026)
+    * [Part 1 — Data](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_week9_part1_data.ipynb) (opens in Google Colab)
+    * [Part 2 — Learning](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_week9_part2_learning.ipynb) (opens in Google Colab)
+    * [Part 3 — Synthesis & Effects](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_week9_part3_synth_fx.ipynb) (opens in Google Colab)
 
 <!--
 * Lab 1: **Basic Acoustics & Auditory Perception** (15 Jan 2026)
