@@ -4,9 +4,14 @@ layout: default
 This page hosts some additional course materials for the
 [Auditory Computing](https://www.ucl.ac.uk/module-catalogue/modules/auditory-computing-COMP0161)
 module at [UCL Computer Science](https://www.ucl.ac.uk/computer-science/), for delivery in
-Term 2 (January-March 2026). For the main body of course materials, please see the [Moodle page](https://moodle.ucl.ac.uk/course/view.php?id=48900). 
+Term 2 (January-March 2027). For the main body of course materials, please see the [Moodle page](https://moodle.ucl.ac.uk/course/view.php?id=56509). 
+
 
 ## Tutorial Sessions
+
+Tutorial information will be provided here closer to the time.
+
+<!--
 
 **Please bring your laptop and suitable headphones/earphones!**
 
@@ -59,6 +64,8 @@ Tutorial code will generally be found in the
     * [Part 2 — Learning](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_week9_part2_learning.ipynb) (opens in Google Colab)
     * [Part 3 — Synthesis & Effects](https://colab.research.google.com/github/comp0161/tutorials/blob/main/comp0161_2026_week9_part3_synth_fx.ipynb) (opens in Google Colab)
 
+-->
+
 <!--
 * Lab 1: **Basic Acoustics & Auditory Perception** (15 Jan 2026)
     * [`lab01.py`](https://github.com/comp0161/tutorials/blob/main/lab01.py)
@@ -104,8 +111,10 @@ Tutorial code will generally be found in the
     * [Part 1 — Data](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part1_data.ipynb) (opens in Google Colab)
     * [Part 2 — Learning](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part2_learning.ipynb) (opens in Google Colab)
     * [Part 3 — Synthesis & Effects](https://colab.research.google.com/github/comp0161/tutorials/blob/main/lab09_part3_synth_fx.ipynb) (opens in Google Colab)
+
 -->
 
+<!--
 ## Coursework
 
 There is one assessed coursework component, worth 30% of the overall module marks.
@@ -113,6 +122,7 @@ Details of this assignment can be found at the link below.
 
 * [Individual Coursework Brief](coursework.html)
 
+-->
 
 ## Links & Resources
 
